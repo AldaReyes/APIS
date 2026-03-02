@@ -6,18 +6,15 @@ public class Producto {
     private String nombre;
     private double precio;
 
-    // Constructor vacío (OBLIGATORIO para Spring)
     public Producto() {
     }
 
-    // Constructor con parámetros
     public Producto(int id, String nombre, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
     }
 
-    // Getters y Setters
     public int getId() {
         return id;
     }
@@ -42,4 +39,3 @@ public class Producto {
         this.precio = precio;
     }
 }
-    

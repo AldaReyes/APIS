@@ -53,4 +53,17 @@ public class restDemoController {
         }
         return null;
     }
+    
+    // DELETE - Eliminar producto por ID
+    @DeleteMapping("/{id}")
+    public String eliminarProducto(@PathVariable int id) {
+        boolean eliminado = productos.removeIf(producto -> producto.getId() == id);
+
+        if (eliminado) {
+            return "Producto con ID " + id + " eliminado correctamente";
+        } else {
+            return "Producto con ID " + id + " no encontrado";
+        }
+    }
+
 }
