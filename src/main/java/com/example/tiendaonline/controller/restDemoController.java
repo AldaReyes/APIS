@@ -1,7 +1,8 @@
 package com.example.tiendaonline.controller;
 
-import com.example.tiendaonline.model.Producto;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.tiendaonline.models.Producto;
 
 import java.util.ArrayList;
 import java.util.List;
