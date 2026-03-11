@@ -1,41 +1,34 @@
 package com.example.tiendaonline.models;
+import jakarta.persistence.*;
+import lombok.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "productos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Producto {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idProducto;
+
     private String nombre;
-    private double precio;
+    private String descripcion;
 
-    public Producto() {
-    }
+    private BigDecimal precio;
 
-    public Producto(int id, String nombre, double precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-    }
+    private LocalDateTime fechaRegistro;
 
-    public int getId() {
-        return id;
-    }
+    private String estatus;
 
-    public void setId(int id) {
-        this.id = id;
-    } 
+    @ManyToOne
+    @JoinColumn(name = "id_proveedor")
+    private Proveedor proveedor;
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 }
